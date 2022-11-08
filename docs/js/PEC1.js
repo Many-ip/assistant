@@ -37,14 +37,25 @@ function Q1() {
     let n=arr.length
     let mitad=parseInt(n/2)
     let q1=arr.slice(0,mitad)
-    return q1[parseInt(q1.length/2)]
+    let q1Mitad=q1.length
+    if(q1Mitad%2==0){
+        let q1Mitad=(q1.length)/2
+        return  (q1[q1Mitad]+q1[q1Mitad-1])/2
+    }else return q1[parseInt(q1.length/2)]
+    
 }
 function Q3() {
     let arr=stringToArrayNumber()
     let n=arr.length
     let mitad=parseInt(n/2)
-    let q3=arr.slice(mitad,n)
-    return q3[parseInt(q3.length/2)]
+    let q3=0
+    if(n%2==0) q3=arr.slice(mitad,n)
+    else q3=arr.slice(mitad+1,n)
+    console.log(q3)
+    if(q3.length%2==0){
+        let q3Mitad=(q3.length)/2
+        return  (q3[q3Mitad]+q3[q3Mitad-1])/2
+    }else return q3[parseInt(q3.length/2)]
 }
 function solve() {
     document.getElementById("Solution").innerHTML=
@@ -68,3 +79,5 @@ function solve() {
         <p>${Q3()}</p>
      </div>`
 }
+
+
